@@ -1,8 +1,15 @@
 .resume {
   align-items: center;
   text-align: center;
-  
+
   h2 {
     margin-bottom: 2rem;
+  }
+
+  .resume-intro {
+    max-width: 520px;
+    margin: 0 auto 1.5rem;
+    color: var(--text-muted, #b3b3b3);
+    line-height: 1.6;
   }
 }

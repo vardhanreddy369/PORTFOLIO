@@ -1,30 +1,8 @@
 import { motion } from "framer-motion";
 import "../styles/components/_skills.scss";
+import { SKILL_CATEGORIES } from "../data/content";
 
 export default function Skills() {
-  const skillCategories = [
-    {
-      title: "Frontend",
-      skills: ["React", "JavaScript", "TypeScript", "HTML5", "CSS3", "SCSS", "Tailwind CSS", "Framer Motion"]
-    },
-    {
-      title: "Backend",
-      skills: ["Node.js", "Express.js", "MongoDB", "PostgreSQL", "RESTful APIs", "Socket.io"]
-    },
-    {
-      title: "AI & Machine Learning",
-      skills: ["Machine Learning", "Deep Learning", "TensorFlow", "PyTorch", "NLP", "Computer Vision", "LLMs", "Generative AI"]
-    },
-    {
-      title: "Tools & Others",
-      skills: ["Git", "GitHub", "VS Code", "Figma", "Postman", "Docker", "AWS", "Vercel"]
-    },
-    {
-      title: "Programming",
-      skills: ["Python", "Java", "C++", "SQL", "Data Structures", "Algorithms"]
-    }
-  ];
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -43,14 +21,14 @@ export default function Skills() {
   return (
     <section className="section skills" id="skills">
       <h2>Skills & Technologies</h2>
-      <motion.div 
+      <motion.div
         className="skills-container"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
-        {skillCategories.map((category, idx) => (
+        {SKILL_CATEGORIES.map((category, idx) => (
           <motion.div key={idx} className="skill-category" variants={itemVariants}>
             <h3>{category.title}</h3>
             <div className="skills-grid">

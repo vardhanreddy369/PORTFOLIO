@@ -1,9 +1,15 @@
-import { FaGithub, FaLinkedin, FaEnvelope, FaHeart, FaArrowUp } from "react-icons/fa";
+import { FaHeart, FaArrowUp } from "react-icons/fa";
 import "../styles/components/_footer.scss";
+import { NAV_LINKS, SOCIAL_LINKS } from "../data/content";
 
 export default function Footer() {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleAnchorClick = (event, id) => {
+    event.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -17,26 +23,33 @@ export default function Footer() {
         <div className="footer-section">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+            {NAV_LINKS.map(link => (
+              <li key={link.id}>
+                <a
+                  href={`#${link.id}`}
+                  onClick={event => handleAnchorClick(event, link.id)}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 
         <div className="footer-section">
           <h4>Connect</h4>
           <div className="footer-socials">
-            <a href="https://github.com/vardhanreddy369" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <FaGithub />
-            </a>
-            <a href="https://www.linkedin.com/in/sri-vardhan-reddy-gutta-09474522a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <FaLinkedin />
-            </a>
-            <a href="mailto:srivardhanreddygutta.us@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email">
-              <FaEnvelope />
-            </a>
+            {SOCIAL_LINKS.map(({ label, href, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+              >
+                <Icon />
+              </a>
+            ))}
           </div>
         </div>
       </div>
