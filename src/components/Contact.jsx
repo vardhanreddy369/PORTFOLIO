@@ -6,6 +6,31 @@ export default function Contact() {
   const socialProfiles = SOCIAL_LINKS.filter(link => link.label !== "Email");
   const emailLink = SOCIAL_LINKS.find(link => link.label === "Email");
 
+  const handleSubmit = event => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    const name = data.get("name");
+    const email = data.get("email");
+    const message = data.get("message");
+
+    const subject = `Message from ${name || "portfolio visitor"}`;
+    const bodyLines = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      "",
+      "Message:",
+      message
+    ];
+
+    const mailtoUrl = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+
+    window.location.href = mailtoUrl;
+    form.reset();
+  };
+
   return (
     <section className="section contact" id="contact">
       <h2>Let's Connect</h2>
@@ -53,7 +78,7 @@ export default function Contact() {
       <div className="message-section">
         <h3>Send Me a Message</h3>
         <p>Drop me a message and I'll get back to you as soon as possible!</p>
-        <form className="contact-form" action="mailto:srivardhanreddygutta.us@gmail.com" method="POST">
+        <form className="contact-form" onSubmit={handleSubmit}>
           <div className="form-group">
             <input
               type="text"
