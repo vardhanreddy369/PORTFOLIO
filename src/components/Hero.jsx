@@ -23,7 +23,7 @@ export default function Hero() {
         >
           <div className="hero-photo__frame">
             <img
-              src="/assets/Profie2.png"
+              src={process.env.PUBLIC_URL + "/assets/Profie2.png"}
               alt="Sri Vardhan Reddy Gutta portrait"
               loading="lazy"
             />

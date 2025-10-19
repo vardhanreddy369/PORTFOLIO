@@ -146,7 +146,7 @@ export const EDUCATION = [
     school: "University of Central Florida (UCF)",
     location: "Orlando, Florida",
     period: "Expected Fall 2027",
-    logo: "/assets/UCF_Logo.png",
+  logo: process.env.PUBLIC_URL + "/assets/UCF_Logo.png",
     highlights: [
       "Focus on Software Engineering and AI/Machine Learning",
       "Advanced coursework in Data Structures and Algorithms",
@@ -159,7 +159,7 @@ export const EDUCATION = [
     school: "KL University",
     location: "Vijayawada, India",
     period: "2020 - 2024",
-    logo: "/assets/klu-logo.png",
+  logo: process.env.PUBLIC_URL + "/assets/klu-logo.png",
     highlights: [
       "Strong foundation in Programming and Software Development",
       "Specialized in Web Technologies and Full-Stack Development",
