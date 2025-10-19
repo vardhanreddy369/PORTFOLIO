@@ -1,0 +1,51 @@
+/* 
+ * Dark Reader Override Styles
+ * These styles ensure the portfolio maintains its design even when Dark Reader is active
+ */
+
+/* Disable Dark Reader for the entire site */
+html {
+  color-scheme: only dark !important;
+}
+
+/* Override Dark Reader's modifications */
+body,
+html[data-darkreader-mode] body,
+html[data-darkreader-scheme] body {
+  background: linear-gradient(135deg, #0e0e10 0%, #1a0e2e 50%, #0e0e10 100%) !important;
+  background-size: 400% 400% !important;
+  color: #fffffe !important;
+  filter: none !important;
+}
+
+/* Preserve gradients and accent colors */
+html[data-darkreader-mode] .name,
+html[data-darkreader-mode] h2,
+html[data-darkreader-mode] .highlight,
+html[data-darkreader-mode] .btn {
+  filter: none !important;
+}
+
+/* Preserve particle canvas */
+html[data-darkreader-mode] .particles-canvas,
+html[data-darkreader-scheme] .particles-canvas {
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+/* Preserve card backgrounds */
+html[data-darkreader-mode] .card,
+html[data-darkreader-mode] .education-card,
+html[data-darkreader-mode] .contact-card,
+html[data-darkreader-mode] .skill-category {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Preserve navbar */
+html[data-darkreader-mode] .navbar,
+html[data-darkreader-scheme] .navbar {
+  background: rgba(14, 14, 16, 0.9) !important;
+  backdrop-filter: blur(10px) !important;
+}

@@ -1,0 +1,119 @@
+.projects {
+  align-items: center;
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .project-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 2.5rem;
+      border-radius: 16px;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      
+      h3 {
+        color: var(--accent);
+        margin-bottom: 1rem;
+        font-size: 1.6rem;
+      }
+      
+      p {
+        color: var(--subtext);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        flex-grow: 1;
+      }
+
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+
+        .tech-tag {
+          background: rgba(127, 90, 240, 0.2);
+          border: 1px solid rgba(127, 90, 240, 0.3);
+          padding: 0.4rem 0.8rem;
+          border-radius: 12px;
+          font-size: 0.85rem;
+          color: var(--text);
+        }
+      }
+
+      .project-links {
+        display: flex;
+        gap: 1rem;
+
+        .project-link {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+          padding: 0.8rem 1.2rem;
+          background: rgba(127, 90, 240, 0.2);
+          border: 1px solid rgba(127, 90, 240, 0.3);
+          border-radius: 8px;
+          color: var(--text);
+          text-decoration: none;
+          font-weight: 500;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+          }
+        }
+      }
+      
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(127, 90, 240, 0.3);
+        border-color: var(--accent);
+        animation: cardGlow 1.5s ease-in-out infinite;
+      }
+
+      @keyframes cardGlow {
+        0%, 100% {
+          box-shadow: 0 20px 40px rgba(127, 90, 240, 0.3);
+        }
+        50% {
+          box-shadow: 0 20px 60px rgba(127, 90, 240, 0.5);
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .project-cards {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+
+      .card {
+        padding: 2rem;
+
+        .project-links {
+          flex-direction: column;
+
+          .project-link {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
