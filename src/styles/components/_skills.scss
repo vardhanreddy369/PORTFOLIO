@@ -40,8 +40,8 @@
         justify-content: center;
 
         .skill {
-          background: rgba(127, 90, 240, 0.2);
-          border: 1px solid rgba(127, 90, 240, 0.3);
+          background: var(--accent-soft-bg);
+          border: 1px solid rgba(255, 43, 61, 0.26);
           padding: 0.6rem 1.2rem;
           border-radius: 20px;
           font-size: 0.9rem;
@@ -50,7 +50,7 @@
           white-space: nowrap;
 
           &:hover {
-            background: rgba(127, 90, 240, 0.4);
+            background: rgba(255, 43, 61, 0.32);
             border-color: var(--accent);
             transform: scale(1.05);
             animation: skillPulse 0.6s ease;
@@ -58,13 +58,13 @@
 
           @keyframes skillPulse {
             0% {
-              box-shadow: 0 0 0 0 rgba(127, 90, 240, 0.7);
+              box-shadow: 0 0 0 0 rgba(255, 43, 61, 0.6);
             }
             70% {
-              box-shadow: 0 0 0 10px rgba(127, 90, 240, 0);
+              box-shadow: 0 0 0 10px rgba(255, 43, 61, 0);
             }
             100% {
-              box-shadow: 0 0 0 0 rgba(127, 90, 240, 0);
+              box-shadow: 0 0 0 0 rgba(255, 43, 61, 0);
             }
           }
         }

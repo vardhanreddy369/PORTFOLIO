@@ -44,8 +44,8 @@
         margin-bottom: 1.5rem;
 
         .tech-tag {
-          background: rgba(127, 90, 240, 0.2);
-          border: 1px solid rgba(127, 90, 240, 0.3);
+          background: var(--accent-soft-bg);
+          border: 1px solid rgba(255, 43, 61, 0.26);
           padding: 0.4rem 0.8rem;
           border-radius: 12px;
           font-size: 0.85rem;
@@ -64,8 +64,8 @@
           justify-content: center;
           gap: 0.5rem;
           padding: 0.8rem 1.2rem;
-          background: rgba(127, 90, 240, 0.2);
-          border: 1px solid rgba(127, 90, 240, 0.3);
+          background: var(--accent-soft-bg);
+          border: 1px solid rgba(255, 43, 61, 0.26);
           border-radius: 8px;
           color: var(--text);
           text-decoration: none;
@@ -82,17 +82,17 @@
       
       &:hover {
         transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(127, 90, 240, 0.3);
+        box-shadow: 0 20px 40px var(--accent-glow);
         border-color: var(--accent);
         animation: cardGlow 1.5s ease-in-out infinite;
       }
 
       @keyframes cardGlow {
         0%, 100% {
-          box-shadow: 0 20px 40px rgba(127, 90, 240, 0.3);
+          box-shadow: 0 20px 40px var(--accent-glow);
         }
         50% {
-          box-shadow: 0 20px 60px rgba(127, 90, 240, 0.5);
+          box-shadow: 0 20px 60px rgba(255, 43, 61, 0.45);
         }
       }
     }

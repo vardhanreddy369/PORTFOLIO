@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react';
-import '../styles/components/_particles.scss';
+import { useEffect, useRef } from "react";
+import "../styles/components/_particles.scss";
 
 export default function Particles() {
   const canvasRef = useRef(null);
@@ -8,25 +8,23 @@ export default function Particles() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
     const particles = [];
     const particleCount = 100;
 
-    // Use HSL for a smooth, always-changing rainbow palette
     function getRainbowColor(t, opacity) {
-      // t: 0 to 1, cycles hue, favoring reds
-      // Red hues: 0-20 and 340-360
       let hue;
       if (t < 0.5) {
-        hue = lerp(0, 20, t * 2); // 0-20
+        hue = lerp(0, 20, t * 2);
       } else {
-        hue = lerp(340, 360, (t - 0.5) * 2); // 340-360
+        hue = lerp(340, 360, (t - 0.5) * 2);
       }
       return `hsla(${hue}, 80%, 60%, ${opacity})`;
     }
+
     function lerp(a, b, t) {
       return a + (b - a) * t;
     }
@@ -52,7 +50,6 @@ export default function Particles() {
         if (this.y > canvas.height) this.y = 0;
         if (this.y < 0) this.y = canvas.height;
 
-        // Animate color
         this.colorT += this.colorSpeed;
         if (this.colorT > 1) this.colorT -= 1;
       }
@@ -77,19 +74,17 @@ export default function Particles() {
 
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
       for (let i = 0; i < particles.length; i++) {
         particles[i].update();
         particles[i].draw();
 
-        // Draw connections
         for (let j = i; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < 150) {
-            // Use animated rainbow color for connections
             ctx.strokeStyle = particles[i].getColor();
             ctx.lineWidth = 1;
             ctx.beginPath();
@@ -111,10 +106,10 @@ export default function Particles() {
       canvas.height = window.innerHeight;
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 

@@ -33,9 +33,9 @@
         align-items: center;
         gap: 2rem;
         padding: 2rem 3rem;
-        background: linear-gradient(135deg, rgba(127, 90, 240, 0.1), rgba(255, 107, 107, 0.1));
+        background: linear-gradient(135deg, rgba(255, 43, 61, 0.18), rgba(90, 0, 6, 0.35));
         backdrop-filter: blur(10px);
-        border: 2px solid rgba(127, 90, 240, 0.3);
+        border: 2px solid rgba(255, 43, 61, 0.3);
         border-radius: 20px;
         text-decoration: none;
         transition: all 0.4s ease;
@@ -82,7 +82,7 @@
         &:hover {
           border-color: var(--accent);
           transform: translateY(-5px);
-          box-shadow: 0 20px 40px rgba(127, 90, 240, 0.3);
+          box-shadow: 0 20px 40px rgba(255, 43, 61, 0.35);
 
           &::before {
             left: 100%;
@@ -147,7 +147,7 @@
           }
 
           &:hover {
-            background: rgba(127, 90, 240, 0.1);
+            background: var(--accent-soft-bg);
             border-color: var(--accent);
             transform: translateX(5px);
 
@@ -208,12 +208,12 @@
         &:focus {
           outline: none;
           border-color: var(--accent);
-          background: rgba(127, 90, 240, 0.1);
-          box-shadow: 0 0 0 4px rgba(127, 90, 240, 0.1);
+          background: rgba(255, 43, 61, 0.1);
+          box-shadow: 0 0 0 4px rgba(255, 43, 61, 0.15);
         }
 
         &:hover {
-          border-color: rgba(127, 90, 240, 0.5);
+          border-color: rgba(255, 43, 61, 0.45);
         }
       }
 
@@ -227,7 +227,7 @@
         justify-content: center;
         gap: 0.8rem;
         padding: 1rem 2.5rem;
-        background: linear-gradient(135deg, var(--accent), #9d6fff);
+        background: linear-gradient(135deg, var(--accent), #ff5c62);
         color: var(--text);
         font-size: 1.1rem;
         font-weight: 600;
@@ -243,8 +243,8 @@
 
         &:hover {
           transform: translateY(-3px);
-          box-shadow: 0 15px 30px rgba(127, 90, 240, 0.4);
-          background: linear-gradient(135deg, #9d6fff, var(--accent));
+          box-shadow: 0 15px 30px rgba(255, 43, 61, 0.4);
+          background: linear-gradient(135deg, #ff5c62, var(--accent));
         }
 
         &:active {

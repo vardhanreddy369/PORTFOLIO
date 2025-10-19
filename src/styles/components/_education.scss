@@ -7,20 +7,11 @@
   }
 
   .education-timeline {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto 4rem;
-    position: relative;
-
-    &::before {
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(180deg, var(--accent), rgba(127, 90, 240, 0.2));
-      transform: translateX(-50%);
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
 
     .education-card {
       background: var(--card-bg);
@@ -28,23 +19,50 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 16px;
       padding: 2.5rem;
-      margin-bottom: 3rem;
       position: relative;
       transition: all 0.3s ease;
       display: flex;
       gap: 2rem;
       align-items: flex-start;
+      min-height: 100%;
 
-      .card-icon {
-        font-size: 3rem;
-        color: var(--accent);
-        background: rgba(127, 90, 240, 0.2);
-        padding: 1.5rem;
-        border-radius: 50%;
+      .card-branding {
+        position: relative;
         flex-shrink: 0;
         display: flex;
         align-items: center;
         justify-content: center;
+        width: clamp(96px, 22%, 140px);
+        height: clamp(96px, 22%, 140px);
+      }
+
+      .card-logo {
+        width: 100%;
+        height: 100%;
+        padding: clamp(10px, 4%, 16px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.45s ease;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.35));
+        }
+      }
+
+      .card-glow {
+        position: absolute;
+        inset: -20px;
+        background: radial-gradient(circle, rgba(255, 42, 61, 0.35), transparent 65%);
+        border-radius: 50%;
+        filter: blur(24px);
+        z-index: -1;
+        opacity: 0.45;
+        transition: opacity 0.45s ease;
+        animation: educationGlow 12s linear infinite;
       }
 
       .card-content {
@@ -102,13 +120,22 @@
       }
 
       &:hover {
-        transform: translateY(-5px);
-        border-color: var(--accent);
-        box-shadow: 0 15px 30px rgba(127, 90, 240, 0.3);
+        transform: translateY(-6px);
+        border-color: rgba(255, 46, 46, 0.65);
+        box-shadow: 0 18px 38px rgba(0, 0, 0, 0.35);
 
-        .card-icon {
-          transform: rotate(360deg);
-          transition: transform 0.6s ease;
+        .card-logo {
+          transform: translateY(-4px) scale(1.05);
+        }
+
+        .card-glow {
+          opacity: 0.75;
+        }
+      }
+
+      &:nth-of-type(2) {
+        .card-glow {
+          background: radial-gradient(circle, rgba(255, 76, 97, 0.38), transparent 65%);
         }
       }
     }
@@ -138,15 +165,15 @@
       }
     }
 
-    .cert-grid {
+      .cert-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
       justify-content: center;
 
-      .cert-tag {
-        background: rgba(127, 90, 240, 0.2);
-        border: 1px solid rgba(127, 90, 240, 0.3);
+        .cert-tag {
+          background: var(--accent-soft-bg);
+          border: 1px solid rgba(255, 43, 61, 0.28);
         padding: 0.8rem 1.5rem;
         border-radius: 25px;
         color: var(--text);
@@ -154,7 +181,7 @@
         transition: all 0.3s ease;
 
         &:hover {
-          background: rgba(127, 90, 240, 0.4);
+          background: rgba(255, 43, 61, 0.35);
           border-color: var(--accent);
           transform: translateY(-3px);
         }
@@ -162,20 +189,32 @@
     }
   }
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
     .education-timeline {
-      &::before {
-        left: 20px;
-      }
-
+      grid-template-columns: 1fr;
+      gap: 2rem;
       .education-card {
         flex-direction: column;
         padding: 2rem;
-        margin-left: 40px;
+        gap: 1.5rem;
+        align-items: stretch;
 
-        .card-icon {
-          font-size: 2rem;
-          padding: 1rem;
+        .card-branding {
+          justify-content: flex-start;
+          width: 100px;
+          height: 100px;
+        }
+
+        .card-logo {
+          width: 100%;
+          height: 100%;
+          padding: 14px;
+        }
+
+        &[data-school="klh"] {
+          .card-logo {
+            padding: 12px;
+          }
         }
       }
     }
@@ -192,5 +231,17 @@
         padding: 0.6rem 1.2rem;
       }
     }
+  }
+}
+
+@keyframes educationGlow {
+  0% {
+    transform: rotate(0deg) scale(0.95);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.05);
+  }
+  100% {
+    transform: rotate(360deg) scale(0.95);
   }
 }
