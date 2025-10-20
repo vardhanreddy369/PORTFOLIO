@@ -1,6 +1,9 @@
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
-export const RESUME_PATH = "/assets/Vardhan_Resume.pdf";
+const ASSET_BASE = process.env.PUBLIC_URL ? process.env.PUBLIC_URL : "";
+
+export const RESUME_PATH = `${ASSET_BASE}/assets/Vardhan_Resume.pdf`;
+export const HERO_PHOTO = `${ASSET_BASE}/assets/Profie2.png`;
 
 export const NAV_LINKS = [
   { label: "Home", id: "home" },
@@ -146,7 +149,7 @@ export const EDUCATION = [
     school: "University of Central Florida (UCF)",
     location: "Orlando, Florida",
     period: "Expected Fall 2027",
-  logo: process.env.PUBLIC_URL + "/assets/UCF_Logo.png",
+    logo: `${ASSET_BASE}/assets/UCF_Logo.png`,
     highlights: [
       "Focus on Software Engineering and AI/Machine Learning",
       "Advanced coursework in Data Structures and Algorithms",
@@ -159,7 +162,7 @@ export const EDUCATION = [
     school: "KL University",
     location: "Vijayawada, India",
     period: "2020 - 2024",
-  logo: process.env.PUBLIC_URL + "/assets/klu-logo.png",
+    logo: `${ASSET_BASE}/assets/klu-logo.png`,
     highlights: [
       "Strong foundation in Programming and Software Development",
       "Specialized in Web Technologies and Full-Stack Development",

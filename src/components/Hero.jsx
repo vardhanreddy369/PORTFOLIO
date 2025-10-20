@@ -1,6 +1,11 @@
 import { motion } from "framer-motion";
 import "../styles/components/_hero.scss";
-import { HERO_CONTENT, RESUME_PATH, SOCIAL_LINKS } from "../data/content";
+import {
+  HERO_CONTENT,
+  HERO_PHOTO,
+  RESUME_PATH,
+  SOCIAL_LINKS
+} from "../data/content";
 
 export default function Hero() {
   const scrollToSection = id => {
@@ -22,11 +27,7 @@ export default function Hero() {
           transition={{ delay: 0.3, duration: 0.8 }}
         >
           <div className="hero-photo__frame">
-            <img
-              src={process.env.PUBLIC_URL + "/assets/Profie2.png"}
-              alt="Sri Vardhan Reddy Gutta portrait"
-              loading="lazy"
-            />
+            <img src={HERO_PHOTO} alt="Sri Vardhan Reddy Gutta portrait" loading="lazy" />
           </div>
         </motion.figure>
         <motion.div
@@ -49,8 +50,15 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            Hi, I'm{" "}
-            <span className="hero-heading__name">{HERO_CONTENT.name}</span>
+            Hi, I'm <span className="hero-name-first">Sri Vardhan Reddy</span>
+          </motion.h1>
+          <motion.h1
+            className="hero-heading hero-heading--surname"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          >
+            <span className="hero-heading__name">Gutta</span>
           </motion.h1>
           <motion.p
             className="hero-subtitle"

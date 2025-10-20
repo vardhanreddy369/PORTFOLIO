@@ -42,6 +42,21 @@
   margin: 0;
 }
 
+.hero-name-first {
+  color: var(--text);
+  white-space: nowrap;
+  background: linear-gradient(90deg, #ff3d3d, #ff6b6b, #ff2e2e);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: heroNameFlow 6s ease-in-out infinite;
+}
+
+.hero-heading--surname {
+  margin-top: -1rem;
+}
+
 .hero-heading__name {
   color: var(--accent);
   position: relative;
@@ -49,15 +64,19 @@
 }
 
 .hero-heading__name::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 100%;
-  height: 6px;
-  background: linear-gradient(135deg, rgba(255, 46, 46, 0.8), rgba(255, 107, 107, 0.4));
-  border-radius: 4px;
-  opacity: 0.6;
+  display: none;
+}
+
+@keyframes heroNameFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .hero-subtitle {
@@ -143,6 +162,7 @@
   border: 1px solid rgba(255, 46, 46, 0.2);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
   overflow: hidden;
+  animation: heroFloat 6s ease-in-out infinite;
 }
 
 .hero-photo__frame::before {
@@ -154,12 +174,61 @@
   pointer-events: none;
 }
 
+.hero-photo__frame::after {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: -30%;
+  width: 60%;
+  height: 160%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.12), transparent 60%);
+  transform: rotate(25deg);
+  opacity: 0;
+  animation: heroShine 6s ease-in-out infinite;
+}
+
+@keyframes heroShine {
+  0%, 65%, 100% {
+    opacity: 0;
+    transform: translateX(-120%) rotate(25deg);
+  }
+  75% {
+    opacity: 0.55;
+  }
+  85% {
+    opacity: 0;
+    transform: translateX(220%) rotate(25deg);
+  }
+}
+
 .hero-photo__frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 20px;
   filter: saturate(1.1) contrast(1.05);
+  transform-origin: center;
+  animation: heroParallax 6s ease-in-out infinite;
+}
+ 
+@keyframes heroFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  }
+  50% {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 28px 50px rgba(229, 9, 20, 0.28);
+  }
+}
+
+@keyframes heroParallax {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(6px) scale(0.995);
+  }
 }
 
 .greeting {
@@ -277,40 +346,49 @@
   justify-content: flex-start;
 }
 .btn {
-  font-size: 1.1rem;
-  padding: 14px 32px;
-  border-radius: 8px;
+  font-size: 1rem;
+  padding: 0.9rem 2.4rem;
+  border-radius: 4px;
   font-weight: 700;
-  box-shadow: none;
-  transition: background 0.3s, color 0.3s, border 0.3s;
-  border: none;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease,
+    color 0.2s ease, border-color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
-.btn-primary {
-  background: linear-gradient(90deg, #ff2e2e, #ff6b6b);
-  color: #fff8f0;
-  box-shadow: 0 0 12px #ff2e2e44;
+.btn:focus-visible {
+  outline: 2px solid rgba(229, 9, 20, 0.6);
+  outline-offset: 2px;
 }
-.btn-primary:hover {
-  background: linear-gradient(90deg, #ff6b6b, #ff2e2e);
+.btn-primary,
+.btn-download {
+  background: linear-gradient(135deg, #ff3838 0%, #e50914 60%, #b0060f 100%);
+  color: #fff;
+  border-color: rgba(229, 9, 20, 0.9);
+  box-shadow: 0 12px 24px rgba(229, 9, 20, 0.35);
+}
+.btn-primary:hover,
+.btn-download:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(229, 9, 20, 0.4);
+  background: linear-gradient(135deg, #ff4a4a 0%, #f6121d 60%, #c40d11 100%);
 }
 .btn-secondary {
-  background: transparent;
-  color: #ff2e2e;
-  border: 2px solid #ff2e2e;
+  background: rgba(229, 9, 20, 0.08);
+  color: #ffb3b3;
+  border: 1px solid rgba(229, 9, 20, 0.6);
 }
 .btn-secondary:hover {
-  background: #ff2e2e;
-  color: #fff8f0;
-}
-.btn-download {
-  background: #ff6b6b;
-  color: #fff8f0;
-  border: none;
-  margin: 0 0.5rem;
-}
-.btn-download:hover {
-  background: #ff2e2e;
+  color: #fff;
+  background: rgba(229, 9, 20, 0.18);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(229, 9, 20, 0.25);
+  border-color: rgba(229, 9, 20, 0.85);
 }
 .hero-socials {
   display: flex;
