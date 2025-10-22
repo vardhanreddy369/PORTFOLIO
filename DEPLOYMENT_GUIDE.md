@@ -31,7 +31,7 @@ cd portfolio
 npm install
 ```
 
-3. Add your resume PDF to `public/assets/Vardhan_Resume.pdf`
+3. Add your resume PDF to `public/assets/Gutta_SriVardhanReddy.pdf`
 
 4. Start the development server:
 ```bash

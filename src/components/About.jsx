@@ -1,22 +1,23 @@
 import { motion } from "framer-motion";
+import { FaPaintBrush, FaBolt, FaRocket } from "react-icons/fa";
 import "../styles/components/_about.scss";
 
 export default function About() {
   const HIGHLIGHTS = [
     {
-      icon: "🎨",
+      icon: FaPaintBrush,
       title: "Design-First",
       description: "Crafting interfaces that feel intuitive, delightful, and unmistakably polished.",
       variant: "design"
     },
     {
-      icon: "🧠",
+      icon: FaBolt,
       title: "AI-Driven",
       description: "Rapid prototypes with generative AI, intelligent automation, and data storytelling.",
       variant: "ai"
     },
     {
-      icon: "🚀",
+      icon: FaRocket,
       title: "Modern Stack",
       description: "Lean on cutting-edge tooling and best practices to build for the future.",
       variant: "modern"
@@ -53,7 +54,7 @@ export default function About() {
             details that matter, and stay relentlessly curious about what's next in tech.
           </p>
           <div className="highlights">
-            {HIGHLIGHTS.map(({ icon, title, description, variant }) => (
+            {HIGHLIGHTS.map(({ icon: Icon, title, description, variant }) => (
               <motion.div
                 key={title}
                 className="highlight-item"
@@ -62,7 +63,7 @@ export default function About() {
                 transition={{ type: "spring", stiffness: 220, damping: 16 }}
               >
                 <span className="highlight-icon" aria-hidden="true">
-                  <span>{icon}</span>
+                  <Icon />
                 </span>
                 <div className="highlight-copy">
                   <h3>{title}</h3>

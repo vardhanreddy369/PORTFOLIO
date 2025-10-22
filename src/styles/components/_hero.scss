@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   padding: clamp(3rem, 11vh, 6.5rem) clamp(2rem, 5vw, 6rem);
+  padding-top: max(clamp(3rem, 11vh, 6.5rem), 100px);
   position: relative;
   overflow: hidden;
 }

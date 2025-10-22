@@ -49,7 +49,7 @@ src/
 ## 📝 Immediate To-Do List
 
 ### Priority 1: Content
-1. [ ] Add your resume PDF to `public/assets/Vardhan_Resume.pdf`
+1. [ ] Add your resume PDF to `public/assets/Gutta_SriVardhanReddy.pdf`
 2. [ ] Update projects in `src/components/Projects.jsx`
 3. [ ] Customize skills in `src/components/Skills.jsx`
 4. [ ] Edit bio in `src/components/About.jsx`

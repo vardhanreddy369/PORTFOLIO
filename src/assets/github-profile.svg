@@ -1,0 +1,14 @@
+<svg width="180" height="180" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ff4b4b" />
+      <stop offset="100%" stop-color="#2b0909" />
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="18" fill="url(#grad)" stroke="#ff6b6b" stroke-width="2" />
+  <path d="M32 36c6.627 0 12-5.82 12-13s-5.373-13-12-13-12 5.82-12 13 5.373 13 12 13z" fill="#fff8f0"/>
+  <path d="M32 39c-9.389 0-17 7.611-17 17H49c0-9.389-7.611-17-17-17z" fill="#fff8f0"/>
+  <text x="32" y="32" text-anchor="middle" alignment-baseline="middle" font-family="'Poppins', sans-serif" font-size="18" font-weight="700" fill="#ff2e2e">
+    SV
+  </text>
+</svg>

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { FaCalendarAlt, FaAward } from "react-icons/fa";
+import { FaCalendarAlt } from "react-icons/fa";
 import "../styles/components/_education.scss";
-import { EDUCATION, CERTIFICATIONS } from "../data/content";
+import { EDUCATION } from "../data/content";
 
 export default function Education() {
   return (
@@ -54,21 +54,6 @@ export default function Education() {
           </motion.div>
         ))}
       </div>
-
-      <motion.div
-        className="certifications"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        <h3><FaAward /> Certifications & Training</h3>
-        <div className="cert-grid">
-          {CERTIFICATIONS.map((cert, idx) => (
-            <span key={idx} className="cert-tag">{cert}</span>
-          ))}
-        </div>
-      </motion.div>
     </section>
   );
 }

@@ -7,7 +7,7 @@ Your portfolio is now running at **http://localhost:3000**
 ## 📝 Next Steps
 
 ### 1. Add Your Resume
-- Place your resume PDF in `public/assets/Vardhan_Resume.pdf`
+- Place your resume PDF in `public/assets/Gutta_SriVardhanReddy.pdf`
 - Or update the path in `src/components/Resume.jsx`
 
 ### 2. Customize Content

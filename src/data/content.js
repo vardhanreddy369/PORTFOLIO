@@ -2,15 +2,15 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const ASSET_BASE = process.env.PUBLIC_URL ? process.env.PUBLIC_URL : "";
 
-export const RESUME_PATH = `${ASSET_BASE}/assets/Vardhan_Resume.pdf`;
+export const RESUME_PATH = `${ASSET_BASE}/assets/Gutta_SriVardhanReddy.pdf`;
 export const HERO_PHOTO = `${ASSET_BASE}/assets/Profie2.png`;
 
 export const NAV_LINKS = [
   { label: "Home", id: "home" },
   { label: "About", id: "about" },
   { label: "Education", id: "education" },
-  { label: "Skills", id: "skills" },
   { label: "Projects", id: "projects" },
+  { label: "Skills", id: "skills" },
   { label: "Contact", id: "contact" }
 ];
 
@@ -100,25 +100,25 @@ export const SKILL_CATEGORIES = [
 
 export const PROJECTS = [
   {
-    title: "Codeflix",
-    desc: "A full-stack streaming platform built with React and Node.js featuring user authentication, video streaming, and a unique random content discovery feature.",
-    tech: ["React", "Node.js", "MongoDB", "Express", "JWT"],
-    github: "https://github.com/vardhanreddy369",
-    live: "#"
+    title: "FakeFlix",
+    desc: "Netflix-inspired streaming experience delivered for CEN-5016 with curated catalog browsing, responsive UI, and coursework-driven feature set.",
+    tech: ["React", "Vite", "Firebase Auth", "TMDB API"],
+    github: "https://github.com/vardhanreddy369/FakeFlix-UCF-F25-Assingment-2",
+    live: "https://vardhanreddy369.github.io/FakeFlix-UCF-F25-Assingment-2/"
   },
   {
-    title: "ConvoSphere",
-    desc: "Real-time chat application with Socket.io enabling instant messaging, group chats, online status indicators, and message history stored in MongoDB.",
-    tech: ["Socket.io", "React", "Node.js", "MongoDB", "Express"],
-    github: "https://github.com/vardhanreddy369",
-    live: "#"
+    title: "stockvision-ai",
+    desc: "AI-powered stock analytics platform combining LSTM forecasting, sentiment signals, and automated trade insights with interactive dashboards.",
+    tech: ["Python", "TensorFlow", "Flask", "Plotly"],
+    github: "https://github.com/vardhanreddy369/stockvision-ai",
+    live: "https://vardhanreddy369.github.io/stockvision-ai/"
   },
   {
     title: "Portfolio Website",
     desc: "A modern, animated portfolio showcasing my work with glassmorphism design, smooth Framer Motion animations, and fully responsive layout.",
     tech: ["React", "Framer Motion", "SCSS", "JavaScript"],
     github: "https://github.com/vardhanreddy369",
-    live: "#"
+    live: "https://vardhanreddy369.github.io/PORTFOLIO/"
   },
   {
     title: "Task Manager Pro",
@@ -170,13 +170,6 @@ export const EDUCATION = [
       "Leadership roles in technical clubs and hackathons"
     ]
   }
-];
-
-export const CERTIFICATIONS = [
-  "Full Stack Web Development",
-  "Machine Learning Specialization",
-  "React & Modern JavaScript",
-  "Cloud Computing Fundamentals"
 ];
 
 export const CONTACT_EMAIL = "srivardhanreddygutta.us@gmail.com";
