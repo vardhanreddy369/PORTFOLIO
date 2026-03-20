@@ -17,7 +17,7 @@ export default function Footer() {
       <div className="footer-content">
         <div className="footer-section">
           <h3>Sri Vardhan Reddy Gutta</h3>
-          <p>Software Engineer & Web Developer passionate about creating innovative solutions.</p>
+          <p>AI Systems Engineer building full-stack AI products from scratch.</p>
         </div>
 
         <div className="footer-section">

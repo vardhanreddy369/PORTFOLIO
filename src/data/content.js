@@ -24,122 +24,100 @@ export const SOCIAL_LINKS = [
   {
     label: "LinkedIn",
     handle: "Sri Vardhan Reddy Gutta",
-    href: "https://www.linkedin.com/in/sri-vardhan-reddy-gutta-09474522a/",
+    href: "https://www.linkedin.com/in/sri-vardhan-reddy-gutta/",
     Icon: FaLinkedin
   },
   {
     label: "Email",
-    handle: "srivardhanreddygutta.us@gmail.com",
-    href: "mailto:srivardhanreddygutta.us@gmail.com",
+    handle: "vardhanreddy2003@gmail.com",
+    href: "mailto:vardhanreddy2003@gmail.com",
     Icon: FaEnvelope
   }
 ];
 
 export const HERO_CONTENT = {
   name: "Sri Vardhan Reddy Gutta",
-  title: "Software Engineer & Web Developer",
-  subtitle: "Crafting beautiful, performant web experiences with modern technologies"
+  title: "AI Systems Engineer",
+  subtitle: "I build full-stack AI products from scratch — every project has a live demo"
 };
 
 export const SKILL_CATEGORIES = [
   {
-    title: "Frontend",
-    skills: [
-      "React",
-      "JavaScript",
-      "TypeScript",
-      "HTML5",
-      "CSS3",
-      "SCSS",
-      "Tailwind CSS",
-      "Framer Motion"
-    ]
-  },
-  {
-    title: "Backend",
-    skills: [
-      "Node.js",
-      "Express.js",
-      "MongoDB",
-      "PostgreSQL",
-      "RESTful APIs",
-      "Socket.io"
-    ]
+    title: "Languages",
+    skills: ["Python", "Java", "JavaScript", "TypeScript", "SQL", "C++"]
   },
   {
     title: "AI & Machine Learning",
     skills: [
-      "Machine Learning",
-      "Deep Learning",
-      "TensorFlow",
       "PyTorch",
-      "NLP",
-      "Computer Vision",
+      "XGBoost",
+      "LSTM",
+      "FinBERT",
+      "RAG Pipelines",
       "LLMs",
-      "Generative AI"
+      "Google Gemini",
+      "scikit-learn"
     ]
   },
   {
-    title: "Tools & Others",
+    title: "Backend & Data",
     skills: [
-      "Git",
-      "GitHub",
-      "VS Code",
-      "Figma",
-      "Postman",
-      "Docker",
-      "AWS",
-      "Vercel"
+      "FastAPI",
+      "Node.js",
+      "Express.js",
+      "SQLite",
+      "MongoDB",
+      "SEC EDGAR API",
+      "REST APIs",
+      "Async Pipelines"
     ]
   },
   {
-    title: "Programming",
-    skills: ["Python", "Java", "C++", "SQL", "Data Structures", "Algorithms"]
+    title: "Frontend",
+    skills: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Chart.js",
+      "Streamlit",
+      "SCSS",
+      "Framer Motion"
+    ]
+  },
+  {
+    title: "Infrastructure",
+    skills: ["Docker", "Git", "Linux", "GCP", "Vercel", "Stripe", "GitHub Actions"]
   }
 ];
 
 export const PROJECTS = [
   {
-    title: "FakeFlix",
-    desc: "Netflix-inspired streaming experience delivered for CEN-5016 with curated catalog browsing, responsive UI, and coursework-driven feature set.",
-    tech: ["React", "Vite", "Firebase Auth", "TMDB API"],
-    github: "https://github.com/vardhanreddy369/FakeFlix-UCF-F25-Assingment-2",
-    live: "https://vardhanreddy369.github.io/FakeFlix-UCF-F25-Assingment-2/"
+    title: "SubTrack",
+    desc: "AI platform mapping 1.19M+ corporate subsidiaries across 22K+ public companies using SEC filings. Three-tier AI enrichment pipeline with 94% classification accuracy. Full SaaS: auth, billing, real-time search, 3D visualizations.",
+    tech: ["FastAPI", "Google Gemini", "SQLite", "JavaScript", "SSE", "Stripe"],
+    github: "https://github.com/vardhanreddy369/subsidiary-tracker",
+    live: "https://subsidiary-tracker.onrender.com"
   },
   {
-    title: "stockvision-ai",
-    desc: "AI-powered stock analytics platform combining LSTM forecasting, sentiment signals, and automated trade insights with interactive dashboards.",
-    tech: ["Python", "TensorFlow", "Flask", "Plotly"],
+    title: "ResuMorph",
+    desc: "Open-source resume tailoring engine that runs entirely in the browser. Smart keyword matching with 150+ skills, ATS compatibility scoring, weak verb replacement. Zero data collection — your resume never leaves your machine.",
+    tech: ["TypeScript", "Next.js", "Vercel"],
+    github: "https://github.com/vardhanreddy369/resumorph",
+    live: "https://resumorph.vercel.app"
+  },
+  {
+    title: "StockVision AI",
+    desc: "Stock analysis platform using LSTM neural networks for price prediction, gradient boosting for directional signals, backtesting engine with buy-and-hold comparison, and portfolio analytics. 46/46 tests passing.",
+    tech: ["Python", "PyTorch", "Streamlit", "scikit-learn"],
     github: "https://github.com/vardhanreddy369/stockvision-ai",
-    live: "https://vardhanreddy369.github.io/stockvision-ai/"
+    live: "https://stockvision-ai-hglrftaeu7t3wxxis5hyjs.streamlit.app"
   },
   {
-    title: "Portfolio Website",
-    desc: "A modern, animated portfolio showcasing my work with glassmorphism design, smooth Framer Motion animations, and fully responsive layout.",
-    tech: ["React", "Framer Motion", "SCSS", "JavaScript"],
-    github: "https://github.com/vardhanreddy369",
-    live: "https://vardhanreddy369.github.io/PORTFOLIO/"
-  },
-  {
-    title: "Task Manager Pro",
-    desc: "Productivity app with drag-and-drop functionality, task categorization, deadline tracking, and progress analytics for efficient project management.",
-    tech: ["React", "TypeScript", "Firebase", "Material-UI"],
-    github: "https://github.com/vardhanreddy369",
-    live: "#"
-  },
-  {
-    title: "Weather Dashboard",
-    desc: "Interactive weather application with real-time data, 7-day forecasts, location search, and beautiful visualizations using Chart.js.",
-    tech: ["React", "OpenWeather API", "Chart.js", "CSS3"],
-    github: "https://github.com/vardhanreddy369",
-    live: "#"
-  },
-  {
-    title: "E-Commerce Store",
-    desc: "Full-featured online store with product catalog, shopping cart, checkout system, payment integration, and admin dashboard for inventory management.",
-    tech: ["React", "Node.js", "Stripe", "PostgreSQL", "Redux"],
-    github: "https://github.com/vardhanreddy369",
-    live: "#"
+    title: "AI Code Review Assistant",
+    desc: "Intelligent code review system powered by fine-tuned LLMs. Real-time PR analysis via webhooks for GitHub, GitLab, and Bitbucket. Team dashboard with metrics visualization and security vulnerability detection.",
+    tech: ["FastAPI", "PyTorch", "React", "TypeScript", "Docker"],
+    github: "https://github.com/vardhanreddy369/AI-code-review-assistant",
+    live: null
   }
 ];
 
@@ -151,25 +129,25 @@ export const EDUCATION = [
     period: "Expected Fall 2027",
     logo: `${ASSET_BASE}/assets/UCF_Logo.png`,
     highlights: [
-      "Focus on Software Engineering and AI/Machine Learning",
-      "Advanced coursework in Data Structures and Algorithms",
-      "Research in Deep Learning and Neural Networks",
-      "Active participation in research projects"
+      "Graduate Research Assistant — building SubTrack under Professors Pirinsky, Gatchev, and Ndum",
+      "Research paper targeting ICAIF 2026 (XGBoost + FinBERT classifier)",
+      "Focus on AI/ML systems, data engineering, and production software",
+      "Processing 1.19M+ SEC filing records as part of research"
     ]
   },
   {
     degree: "Bachelor of Technology in Computer Science",
     school: "KL University",
     location: "Vijayawada, India",
-    period: "2020 - 2024",
+    period: "2021 - 2025",
     logo: `${ASSET_BASE}/assets/klu-logo.png`,
     highlights: [
-      "Strong foundation in Programming and Software Development",
-      "Specialized in Web Technologies and Full-Stack Development",
-      "Multiple project-based learning experiences",
-      "Leadership roles in technical clubs and hackathons"
+      "GPA: 9.3/10",
+      "Strong foundation in DSA, system design, and full-stack development",
+      "Built SpendWise financial wellness platform (team project)",
+      "10 certifications including Azure AI Fundamentals and Advanced Automation"
     ]
   }
 ];
 
-export const CONTACT_EMAIL = "srivardhanreddygutta.us@gmail.com";
+export const CONTACT_EMAIL = "vardhanreddy2003@gmail.com";

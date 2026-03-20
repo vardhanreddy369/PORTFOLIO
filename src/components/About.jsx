@@ -1,25 +1,25 @@
 import { motion } from "framer-motion";
-import { FaPaintBrush, FaBolt, FaRocket } from "react-icons/fa";
+import { FaDatabase, FaBrain, FaLayerGroup } from "react-icons/fa";
 import "../styles/components/_about.scss";
 
 export default function About() {
   const HIGHLIGHTS = [
     {
-      icon: FaPaintBrush,
-      title: "Design-First",
-      description: "Crafting interfaces that feel intuitive, delightful, and unmistakably polished.",
+      icon: FaLayerGroup,
+      title: "Full-Stack",
+      description: "Backend, frontend, APIs, billing, auth — I build the entire product, not just one layer.",
       variant: "design"
     },
     {
-      icon: FaBolt,
-      title: "AI-Driven",
-      description: "Rapid prototypes with generative AI, intelligent automation, and data storytelling.",
+      icon: FaBrain,
+      title: "AI/ML",
+      description: "LLMs, XGBoost, LSTM, RAG pipelines — ML that ships to production, not just notebooks.",
       variant: "ai"
     },
     {
-      icon: FaRocket,
-      title: "Modern Stack",
-      description: "Lean on cutting-edge tooling and best practices to build for the future.",
+      icon: FaDatabase,
+      title: "Data Systems",
+      description: "Async pipelines processing 1M+ records. SEC EDGAR scraping, enrichment, and real-time search.",
       variant: "modern"
     }
   ];
@@ -35,23 +35,23 @@ export default function About() {
         <h2>About Me</h2>
         <div className="about-content">
           <p className="intro">
-            I'm a passionate <span className="highlight">Software Engineer</span> 
-            specializing in creating beautiful, performant web applications that users love.
+            I'm the kind of engineer who can't just use a tool — <span className="highlight">I have to build one</span>.
           </p>
           <p>
-            With expertise in modern web technologies like <strong>React, Node.js, and MongoDB</strong>, 
-            I blend technical proficiency with design thinking to build products that are both 
-            visually stunning and functionally robust.
+            I sit at the intersection of <strong>AI/ML and full-stack engineering</strong>. I can train
+            an XGBoost model in the morning, build the FastAPI endpoint to serve it in the afternoon,
+            and push the React frontend that displays it by evening. Most people specialize in one
+            lane — I connect all three.
           </p>
           <p>
-            On the AI front, I'm actively exploring <strong>LLMs, computer vision, and generative AI</strong> to 
-            ship assistants that accelerate workflows. Whether it's tuning prompts, wiring up vector search, 
-            or deploying real-time inference pipelines, I love turning fuzzy ideas into useful agents.
+            My biggest project, <strong>SubTrack</strong>, processes 1.19M+ corporate subsidiary records
+            across 22K+ public companies. I built the entire thing from scratch: async data pipeline,
+            AI enrichment engine, 3D network visualizations, real-time streaming search, Stripe billing.
+            The classification system hits 94% accuracy.
           </p>
           <p>
-            Beyond the code editor you'll find me mentoring peers, co-organizing hackathons, and writing 
-            deep-dive breakdowns on my build process. I thrive in collaborative teams, love obsessing over 
-            details that matter, and stay relentlessly curious about what's next in tech.
+            Currently finishing my MS in Computer Science at UCF, working on a research paper
+            targeting ICAIF 2026, and looking for a team that ships fast and thinks big.
           </p>
           <div className="highlights">
             {HIGHLIGHTS.map(({ icon: Icon, title, description, variant }) => (
