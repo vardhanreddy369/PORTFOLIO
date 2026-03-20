@@ -12,8 +12,9 @@ export default function Particles() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
+    let mouse = { x: null, y: null };
     const particles = [];
-    const particleCount = 100;
+    const particleCount = 120;
 
     function getRainbowColor(t, opacity) {
       let hue;
@@ -49,6 +50,17 @@ export default function Particles() {
         if (this.x < 0) this.x = canvas.width;
         if (this.y > canvas.height) this.y = 0;
         if (this.y < 0) this.y = canvas.height;
+
+        // Interactive "Stitch" / Spiderweb effect with mouse
+        if (mouse.x != null && mouse.y != null) {
+          const dx = mouse.x - this.x;
+          const dy = mouse.y - this.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          if (distance < 200) {
+            this.x += dx * 0.02;
+            this.y += dy * 0.02;
+          }
+        }
 
         this.colorT += this.colorSpeed;
         if (this.colorT > 1) this.colorT -= 1;
@@ -93,6 +105,21 @@ export default function Particles() {
             ctx.stroke();
           }
         }
+
+        // Draw line to mouse (Stitch effect)
+        if (mouse.x != null && mouse.y != null) {
+            const dx = particles[i].x - mouse.x;
+            const dy = particles[i].y - mouse.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < 180) {
+              ctx.strokeStyle = particles[i].getColor();
+              ctx.lineWidth = 1;
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(mouse.x, mouse.y);
+              ctx.stroke();
+            }
+        }
       }
 
       requestAnimationFrame(animate);
@@ -106,10 +133,24 @@ export default function Particles() {
       canvas.height = window.innerHeight;
     };
 
+    const handleMouseMove = (event) => {
+      mouse.x = event.clientX;
+      mouse.y = event.clientY;
+    };
+
+    const handleMouseLeave = () => {
+      mouse.x = null;
+      mouse.y = null;
+    };
+
     window.addEventListener("resize", handleResize);
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, []);
 

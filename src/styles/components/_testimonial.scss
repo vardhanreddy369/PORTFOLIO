@@ -1,0 +1,40 @@
+/* ── Testimonial Section ───────────────────────────────── */
+
+.testimonial {
+  padding: 5rem 10%;
+  text-align: center;
+}
+
+.testimonial-quote {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: var(--text);
+  font-style: italic;
+  max-width: 700px;
+  margin: 0 auto;
+
+  &::before {
+    content: "\201C";
+    display: block;
+    font-size: 4rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    font-style: normal;
+  }
+}
+
+.testimonial-author {
+  font-family: "SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin-top: 1.5rem;
+}
+
+.testimonial-role {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  color: var(--subtext);
+  margin-top: 0.25rem;
+}

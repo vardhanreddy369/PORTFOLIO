@@ -1,0 +1,66 @@
+/* ── Custom Cursor ─────────────────────────────────────── */
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent, #C15F3C);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 100000;
+  will-change: transform;
+  transition: opacity 0.2s ease, width 0.2s ease, height 0.2s ease;
+
+  &--hidden {
+    opacity: 0;
+  }
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(193, 95, 60, 0.4);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  mix-blend-mode: difference;
+  will-change: transform;
+  transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              height 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              border-color 0.3s ease,
+              background-color 0.3s ease;
+
+  // Hover over links/buttons — expand + fill
+  &--link {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(193, 95, 60, 0.12);
+    border-color: rgba(193, 95, 60, 0.6);
+  }
+
+  // Hover over text — shrink
+  &--text {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Hide default cursor */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* Hide custom cursor on mobile / touch devices */
+@media (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+}

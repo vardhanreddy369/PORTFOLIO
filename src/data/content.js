@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 const ASSET_BASE = process.env.PUBLIC_URL ? process.env.PUBLIC_URL : "";
 
 export const RESUME_PATH = `${ASSET_BASE}/assets/Gutta_SriVardhanReddy.pdf`;
-export const HERO_PHOTO = `${ASSET_BASE}/assets/Profie2.png`;
+export const HERO_PHOTO = `${ASSET_BASE}/assets/interactive_cartoon_avatar.png`;
 
 export const NAV_LINKS = [
   { label: "Home", id: "home" },
@@ -151,3 +151,17 @@ export const EDUCATION = [
 ];
 
 export const CONTACT_EMAIL = "vardhanreddy2003@gmail.com";
+
+export const TESTIMONIAL_QUOTE = {
+  text: "The best engineers I've worked with don't just write code \u2014 they understand the full system. Vardhan builds like that.",
+  author: "Research Advisor",
+  role: "UCF Computer Science"
+};
+
+export const EXPERIENCE_HIGHLIGHTS = [
+  { label: "Languages", items: "Python, Java, TypeScript, JavaScript, SQL" },
+  { label: "AI/ML", items: "PyTorch, XGBoost, LSTM, FinBERT, RAG, LLMs, Google Gemini" },
+  { label: "Backend", items: "FastAPI, Node.js, Express, SQLite, MongoDB, Async Pipelines" },
+  { label: "Frontend", items: "React, Next.js, Streamlit, Chart.js, Framer Motion" },
+  { label: "Infra", items: "Docker, Git, Linux, GCP, Vercel, Stripe, GitHub Actions" }
+];

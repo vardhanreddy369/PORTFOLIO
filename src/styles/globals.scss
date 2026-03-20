@@ -9,57 +9,65 @@
 @import './components/resume';
 @import './components/contact';
 @import './components/footer';
+@import './components/stats';
+@import './components/testimonial';
+@import './components/marquee';
 
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotateBorder {
+  to { --border-angle: 360deg; }
+}
+
+/* ── GitHub × Claude Theme ───────────────────────────── */
 :root {
-  --bg: #181012;
-  --accent: #ff2e2e;
-  --accent-soft: rgba(255, 46, 46, 0.2);
-  --text: #fff8f0;
-  --subtext: #ffb3b3;
-  --card-bg: rgba(255, 46, 46, 0.07);
-  --accent-soft-bg: rgba(255, 46, 46, 0.12);
-  --accent-glow: rgba(255, 46, 46, 0.35);
+  /* GitHub dark palette */
+  --bg: #0d1117;
+  --bg-secondary: #161b22;
+  --border: #30363d;
+  --card-bg: #161b22;
+  --text: #e6edf3;
+  --subtext: #8b949e;
+
+  /* Claude warm accents */
+  --accent: #C15F3C;
+  --accent-soft: rgba(193, 95, 60, 0.2);
+  --accent-soft-bg: rgba(193, 95, 60, 0.1);
+  --accent-glow: rgba(193, 95, 60, 0.35);
+  --bg-warm: #F4F3EE;
+  --text-warm: #1f2328;
+
+  /* GitHub blue (secondary accent) */
+  --accent-blue: #58a6ff;
+
+  /* Layout */
   --sidebar-width: 260px;
   --navbar-height: 24px;
+
   color-scheme: dark;
 }
 
+/* ── Fonts ────────────────────────────────────────────── */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
-/* Prevent Dark Reader and other extensions from modifying colors */
-html[data-darkreader-mode] *,
-html[data-darkreader-scheme] * {
-  background-color: var(--bg) !important;
-  color: var(--text) !important;
+h1, h2, h3 {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
-html[data-darkreader-mode] body,
-html[data-darkreader-scheme] body {
-  background: linear-gradient(135deg, #0d0809 0%, #1a0505 50%, #0d0809 100%) !important;
-  background-size: 400% 400% !important;
-  animation: gradientShift 20s ease infinite !important;
+code, .mono {
+  font-family: "SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace;
 }
 
-/* Preserve accent colors */
-html[data-darkreader-mode] .btn,
-html[data-darkreader-scheme] .btn,
-html[data-darkreader-mode] .name,
-html[data-darkreader-scheme] .name,
-html[data-darkreader-mode] h2,
-html[data-darkreader-scheme] h2,
-html[data-darkreader-mode] .highlight,
-html[data-darkreader-scheme] .highlight {
-  color: var(--accent) !important;
-  background: linear-gradient(135deg, var(--accent), #ff6b6b) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-}
-
+/* ── Base ─────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--navbar-height);
@@ -67,86 +75,44 @@ html {
 }
 
 body {
-  background: linear-gradient(135deg, #17090a 0%, #2b0909 50%, #17090a 100%) !important;
-  background-size: 400% 400% !important;
-  animation: gradientShift 20s ease infinite !important;
-  color: var(--text) !important;
+  background: var(--bg);
+  color: var(--text);
   overflow-x: hidden;
   position: relative;
   cursor: default;
-  
-  filter: none !important;
-  -webkit-filter: none !important;
-  
+
+  /* Subtle grid + gradient mesh background */
   &::before {
     content: '';
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    inset: 0;
     z-index: -3;
     pointer-events: none;
-    background: none;
-    background-image: url('data:image/svg+xml;utf8,<svg width="100%25" height="100%25" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg"><filter id="blur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="18"/></filter><path filter="url(%23blur)" fill="%23ff3c3c" fill-opacity="0.12" d="M0,160L60,165.3C120,171,240,181,360,186.7C480,192,600,192,720,186.7C840,181,960,171,1080,154.7C1200,139,1320,117,1380,106.7L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path><path filter="url(%23blur)" fill="%23ff6b6b" fill-opacity="0.09" d="M0,224L60,218.7C120,213,240,203,360,197.3C480,192,600,192,720,186.7C840,181,960,171,1080,154.7C1200,139,1320,117,1380,106.7L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom;
-    opacity: 0.85;
-    filter: blur(2px) brightness(1.1);
-    transition: opacity 0.8s, filter 0.8s;
+    background-image:
+      /* Fine grid lines */
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
   }
 
+  /* Ambient gradient mesh — warm + cool blobs */
   &::after {
     content: '';
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    inset: 0;
     z-index: -2;
     pointer-events: none;
-    background: none;
-    background-image:
-      radial-gradient(ellipse at 20% 30%, rgba(255, 46, 46, 0.12) 0%, transparent 40%),
-      radial-gradient(ellipse at 80% 70%, rgba(255, 107, 107, 0.12) 0%, transparent 40%),
-      radial-gradient(ellipse at 50% 50%, rgba(255, 46, 46, 0.10) 0%, transparent 50%),
-      radial-gradient(ellipse at 90% 20%, rgba(255, 46, 46, 0.10) 0%, transparent 40%);
-    animation: floatingGradients 25s ease-in-out infinite;
-    opacity: 0.6;
+    background:
+      radial-gradient(800px circle at 20% 10%, rgba(193, 95, 60, 0.07) 0%, transparent 60%),
+      radial-gradient(600px circle at 80% 60%, rgba(88, 166, 255, 0.05) 0%, transparent 60%),
+      radial-gradient(900px circle at 50% 90%, rgba(193, 95, 60, 0.04) 0%, transparent 60%);
   }
 }
 
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes floatingGradients {
-  0%, 100% {
-    opacity: 1;
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    opacity: 0.8;
-    transform: translate(30px, -30px) scale(1.1);
-  }
-  66% {
-    opacity: 0.9;
-    transform: translate(-20px, 20px) scale(0.95);
-  }
-}
-
+/* ── Sections ─────────────────────────────────────────── */
 .section {
   min-height: 100vh;
-  padding: 80px 10%;
+  padding: 100px 10%;
   scroll-margin-top: var(--navbar-height);
   display: flex;
   flex-direction: column;
@@ -161,63 +127,91 @@ body {
   }
 }
 
-@media (max-width: 900px) {
-  .app {
-    display: flex;
-    flex-direction: column;
-  }
-  main {
-    max-width: 100%;
-    padding: 0 clamp(1.5rem, 6vw, 3rem);
-  }
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 32px;
-  background: var(--accent);
+/* All sections use same dark bg */
+.section--warm {
+  background: transparent;
   color: var(--text);
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px var(--accent-glow);
-  }
 }
 
-h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  background: linear-gradient(135deg, var(--accent), #ff6b6b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.app {
-  display: grid;
-  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
-  min-height: 100vh;
-}
-
+/* ── Layout ───────────────────────────────────────────── */
+/* No sidebar — single column layout */
 main {
   width: 100%;
-  max-width: min(1200px, calc(100vw - var(--sidebar-width)));
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 clamp(2rem, 5vw, 4rem);
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
-@keyframes moveGrid {
-  0% {
-    transform: translate(0, 0);
+/* ── Buttons ──────────────────────────────────────────── */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.01em;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  border: 1px solid var(--accent);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px var(--accent-glow);
+    filter: brightness(1.1);
   }
-  100% {
-    transform: translate(50px, 50px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+
+  &:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
   }
+}
+
+.btn-download {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+
+  &:hover {
+    background: var(--accent-soft);
+    transform: translateY(-2px);
+  }
+}
+
+/* ── Headings ─────────────────────────────────────────── */
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--text);
+  -webkit-text-fill-color: var(--text);
+  background: none;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* ── Utility keyframes ────────────────────────────────── */
+@keyframes gradientFlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ── Dark reader override ─────────────────────────────── */
+html[data-darkreader-mode] body,
+html[data-darkreader-scheme] body {
+  background: var(--bg) !important;
+  color: var(--text) !important;
 }

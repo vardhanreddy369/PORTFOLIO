@@ -1,0 +1,47 @@
+/* ── Tech Marquee ──────────────────────────────────────── */
+
+.marquee-section {
+  overflow: hidden;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  animation: marqueeScroll 30s linear infinite;
+  width: max-content;
+}
+
+.marquee-track--reverse {
+  animation-direction: reverse;
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-item {
+  padding: 0 2rem;
+  color: var(--subtext);
+  font-family: "SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+  position: relative;
+
+  &::after {
+    content: "\00B7";
+    position: absolute;
+    right: 0;
+    color: var(--subtext);
+    opacity: 0.4;
+  }
+}
